@@ -2,6 +2,15 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Button from 'react-bootstrap/Button';
+
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
+
+import logo from "./assets/images/logo.png"
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -9,25 +18,30 @@ function App() {
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Row>
+        <Col xs={6} md={4}>
+          <Image src={logo} className='logo' rounded />
+        </Col>
+      </Row>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
+      <h1>Learn with Melvin ʕっ•ᴥ•ʔっ</h1>
+      <div>
         <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+          Home {count}
+        </button>
+        <button onClick={() => setCount((count) => count + 1)}>
+          About {count}
+        </button>
+        <button onClick={() => setCount((count) => count + 1)}>
+          Sign in {count}
+        </button>
+        <button onClick={() => setCount((count) => count + 1)}>
+          Sign Up {count}
         </button>
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          <code>Unlocking Futures with Melvin: Play, Learn, and Grow in the World of STEM</code>
         </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
