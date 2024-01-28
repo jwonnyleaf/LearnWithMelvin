@@ -103,6 +103,14 @@ function App() {
           <Routes>
             {/* Protected Routes */}
             <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
               path="/about"
               element={
                 <ProtectedRoute>
