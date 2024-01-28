@@ -74,6 +74,10 @@ const About = () => {
                 experience that fosters a deep, lasting interest in STEM subjects.
             </p>
             <Button variant="contained" color="success" onClick={signOut}>Sign Out</Button>
+            <br></br> <br></br>
+            <img src={Logo} className='minimelvin' rounded></img>
+            <img src={Logo} className='minimelvin' rounded></img>
+            <img src={Logo} className='minimelvin' rounded></img>
         </>
     );
 };

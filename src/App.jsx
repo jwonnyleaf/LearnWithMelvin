@@ -15,6 +15,9 @@ import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
 import About from "./components/About/About";
 import Dashboard from "./components/Dashboard/Dashboard";
+import PartOne from "./components/Challenge1/PartOne";
+import PartTwo from "./components/Challenge1/PartTwo";
+import PartThree from"./components/Challenge1/PartThree";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 const theme = createTheme({
@@ -143,6 +146,9 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/taskonepartone" element={<PartOne />} />
+            <Route path="/taskoneparttwo" element={<PartTwo />} />
+            <Route path="/taskonepartthree" element={<PartThree />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </AuthProvider>

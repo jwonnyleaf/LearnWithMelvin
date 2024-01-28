@@ -74,8 +74,8 @@ function Dashboard() {
           >
             <Grid item>
               <div id="div1" className="hiddendiv">
-                <p style={{color: "black"}}>Task 1 description</p>
-                <Button variant="contained" color="success" href="./">
+                <p style={{color: "black"}}>Task 1: Help Melvin Escape the Animatronic ʕ￫ᴥ￩ʔ</p>
+                <Button variant="contained" color="success" href="./taskonepartone">
                   Go
                 </Button>
               </div>
