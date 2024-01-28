@@ -1,3 +1,64 @@
-.logo {
-    width: 500px;
+.landing-logo {
+  width: 500px;
+}
+
+.landing-left-col {
+  text-align: left;
+}
+
+.landing-right-col {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-main-grid {
+  width: 100%;
+}
+
+.landing-title {
+  font-size: 4vw;
+}
+
+.landing-typing-box {
+  font-family: "Montserrat";
+  font-weight: 900;
+  margin: 0.4em 0em;
+  border: 2px solid var(--platinum);
+  border-radius: 2rem;
+  display: inline-block;
+  padding: 10px 25px;
+}
+
+.landing-description-box {
+  font-size: 20px;
+  width: 80%;
+}
+
+.landing-button-box {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  margin-top: 0.7em;
+  align-items: center;
+}
+
+.learn-more-button {
+  color: var(--platinum);
+  background-color: transparent;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+.learn-more-button .arrow {
+  display: inline-block;
+  will-change: transform; /* Optimize for transform changes */
+  transition: transform 0.3s ease;
+}
+
+.learn-more-button:hover .arrow {
+  transform: translateX(10px); /* Move arrow to the right on hover */
 }
