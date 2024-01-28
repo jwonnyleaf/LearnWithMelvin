@@ -21,16 +21,15 @@ function Home() {
       </div>
       <h1>Learn with Melvin ʕっ•ᴥ•ʔっ</h1>
       <div>
-        <span> </span>
-        <Button variant="contained" color="success" href="./about">
+        <Button variant="contained" color="ashgreen" href="./about">
           About
         </Button>
         <span> </span>
-        <Button variant="contained" color="success" href="./login">
+        <Button variant="contained" color="ashgreen" href="./login">
           Sign In
         </Button>
         <span> </span>
-        <Button variant="contained" color="success" href="#contained-buttons">
+        <Button variant="contained" color="ashgreen" href="#contained-buttons">
           Sign Up
         </Button>
         <p>
