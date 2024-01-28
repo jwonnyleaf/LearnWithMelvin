@@ -19,6 +19,9 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
+    black: {
+      main: "#000000",
+    },
     eerieblack: {
       main: "#242424",
     },
@@ -35,16 +38,40 @@ const theme = createTheme({
       main: "#efefef",
     },
   },
+  components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
+  },
 });
 
 theme.components = {
   MuiButton: {
     styleOverrides: {
       root: {
+        webkitTapHighlightColor: "transparent",
+      },
+      normal: {
         backgroundColor: theme.palette.melon.main,
+        color: theme.palette.black.main,
+        fontFamily: "Montserrat",
+        fontWeight: "bold",
+        padding: "10px 30px",
+        borderRadius: "5px",
+        border: "1px solid #efefef",
         "&:hover": {
-          backgroundColor: theme.palette.ashgreen.main,
+          backgroundColor: theme.palette.melon.main,
+          borderRadius: "25px",
+          color: theme.palette.eerieblack.main,
         },
+      },
+      blank: {
+        color: theme.palette.platinum.main,
+        fontFamily: "Montserrat",
+        fontWeight: "bold",
+        padding: "10px 30px",
       },
     },
   },
@@ -110,18 +137,10 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route
-              path="/about"
-              element={
-                <ProtectedRoute>
-                  <About />
-                </ProtectedRoute>
-              }
-            />
 
             {/* Unprotected Routes */}
             <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/about" element={<About />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="*" element={<Navigate to="/" />} />
