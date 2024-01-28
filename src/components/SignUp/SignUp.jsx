@@ -31,6 +31,7 @@ function SignUp() {
       navigate("/");
     } catch (err) {
       setError(err.message);
+      console.log(err);
     }
   };
 

@@ -28,9 +28,10 @@ function SignIn() {
     try {
       setError("");
       await signIn(email, password);
-      navigate("/about");
+      navigate("/dashboard");
     } catch (err) {
       setError(err.message);
+      console.log(err);
     }
   };
 
@@ -51,6 +52,7 @@ function SignIn() {
               label="Email Address"
               name="email"
               autoComplete="email"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </Grid>
           <Grid item xs={12}>
@@ -62,6 +64,7 @@ function SignIn() {
               type="password"
               id="password"
               autoComplete="new-password"
+              onChange={(e) => setPassword(e.target.value)}
             />
           </Grid>
         </Grid>
