@@ -53,7 +53,7 @@ const About = () => {
                         </Item>
                     </Grid>
                     <Grid xs={4}>
-                        <Item><img src={logo} className='aboutlogo' rounded></img></Item>
+                        <Item><img src={Logo} className='aboutlogo' rounded></img></Item>
                     </Grid>
                     <Grid xs={4}>
                         <Item><h3>Howdy! I’m Melvin and I’ll help you learn about

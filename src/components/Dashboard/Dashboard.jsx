@@ -9,7 +9,7 @@ import {
   Checkbox,
   Link,
 } from "@mui/material";
-import logo from "../../assets/images/logo.png"
+import { Logo } from "../../assets";
 import "./Dashboard.css";
 
 function hide() {
@@ -93,7 +93,7 @@ function Dashboard() {
               </div>
             </Grid>
             <Grid item>
-              <img src={logo} className='melvin' />
+              <img src={Logo} className='melvin' />
             </Grid>
           </Grid>
         </Grid>
