@@ -9,26 +9,39 @@ import {
   Checkbox,
   Link,
 } from "@mui/material";
-import "./Login.css";
+import { useUserAuth } from "../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
+
+import "./SignUp.css";
 import "../../App.css";
 
-function handleSubmit(event) {
-  event.preventDefault();
-  const data = new FormData(event.currentTarget);
-  // eslint-disable-next-line no-console
-  console.log({
-    email: data.get("email"),
-    password: data.get("password"),
-  });
-}
+function SignUp() {
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [error, setError] = React.useState("");
+  const { signUp } = useUserAuth();
 
-function Login() {
+  let navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setError("");
+      await signUp(email, password);
+      navigate("/");
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
   return (
     <section className="section-container">
-      <Container>
-        <h1>Login</h1>
-      </Container>
-      <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+      <Box
+        component="form"
+        noValidate
+        onSubmit={handleSubmit}
+        sx={{ width: "40%" }}
+      >
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
             <TextField
@@ -59,6 +72,7 @@ function Login() {
               label="Email Address"
               name="email"
               autoComplete="email"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </Grid>
           <Grid item xs={12}>
@@ -70,12 +84,7 @@ function Login() {
               type="password"
               id="password"
               autoComplete="new-password"
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <FormControlLabel
-              control={<Checkbox value="allowExtraEmails" color="primary" />}
-              label="I want to receive inspiration, marketing promotions and updates via email."
+              onChange={(e) => setPassword(e.target.value)}
             />
           </Grid>
         </Grid>
@@ -87,9 +96,9 @@ function Login() {
         >
           Sign Up
         </Button>
-        <Grid container justifyContent="flex-end">
+        <Grid container justifyContent="center">
           <Grid item>
-            <Link href="#" variant="body2">
+            <Link href="/signin" variant="body2">
               Already have an account? Sign in
             </Link>
           </Grid>
@@ -99,4 +108,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignUp;
