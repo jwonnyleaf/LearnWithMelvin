@@ -14,6 +14,7 @@ import Home from "./components/Home/Home";
 import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/SignUp/SignUp";
 import About from "./components/About/About";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 const theme = createTheme({
@@ -112,6 +113,7 @@ function App() {
 
             {/* Unprotected Routes */}
             <Route path="/" element={<Home />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="*" element={<Navigate to="/" />} />
