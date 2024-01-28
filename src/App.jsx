@@ -9,6 +9,7 @@ import {
 
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
+import About from "./components/About/About";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   );
