@@ -22,11 +22,11 @@ function Home() {
       <h1>Learn with Melvin ʕっ•ᴥ•ʔっ</h1>
       <div>
         <span> </span>
-        <Button variant="contained" color="success" href="./About">
+        <Button variant="contained" color="success" href="./about">
           About
         </Button>
         <span> </span>
-        <Button variant="contained" color="success" href="./Login">
+        <Button variant="contained" color="success" href="./login">
           Sign In
         </Button>
         <span> </span>

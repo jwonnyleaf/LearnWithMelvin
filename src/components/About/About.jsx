@@ -6,7 +6,7 @@ const About = () => {
         <>
         <div>
             <h1>Hello</h1>
-            <Button variant="contained" color="success" href="./Home.jsx">
+            <Button variant="contained" color="success" href="./">
                 About
             </Button>
         </div>
