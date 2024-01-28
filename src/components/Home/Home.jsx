@@ -1,43 +1,37 @@
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
-import Row from 'react-bootstrap/Row';
-
-import logo from "../../assets/images/logo.png"
-import './Home.css'
-
-import * as React from 'react';
-import Button from '@mui/material/Button';
+import React from "react";
+import "./Home.css";
+import Button from "@mui/material/Button";
+import { Logo } from "../../assets";
 
 function Home() {
   return (
     <>
       <div>
-        <Row>
-          <Col xs={6} md={4}>
-            <Image src={logo} className='logo' rounded />
-          </Col>
-        </Row>
+        <img src={Logo} className="logo" alt="logo" />
       </div>
       <h1>Learn with Melvin ʕっ•ᴥ•ʔっ</h1>
       <div>
-        <Button variant="contained" color="ashgreen" href="./about">
+        <span> </span>
+        <Button variant="contained" color="success" href="/about">
           About
         </Button>
         <span> </span>
-        <Button variant="contained" color="ashgreen" href="./login">
+        <Button variant="contained" color="success" href="/signin">
           Sign In
         </Button>
         <span> </span>
-        <Button variant="contained" color="ashgreen" href="#contained-buttons">
+        <Button variant="contained" color="success" href="/signup">
           Sign Up
         </Button>
         <p>
-          <code>Unlocking Futures with Melvin: Play, Learn, and Grow in the World of STEM</code>
+          <code>
+            Unlocking Futures with Melvin: Play, Learn, and Grow in the World of
+            STEM
+          </code>
         </p>
       </div>
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;

@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import logo from "../../assets/images/logo.png"
+import { useUserAuth } from "../../contexts/AuthContext";
+import { Logo } from "../../assets";
 
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -18,6 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const About = () => {
+    const { signOut } = useUserAuth();
     return (
         <>
             <div>
@@ -71,15 +73,7 @@ const About = () => {
                 challenges and puzzles. The core objective of Melvin is to create a fun, immersive, and educational <br></br>
                 experience that fosters a deep, lasting interest in STEM subjects.
             </p>
-            <img src={logo} className='minimelvin' rounded></img>
-            <img src={logo} className='minimelvin' rounded></img>
-            <img src={logo} className='minimelvin' rounded></img>
-            <img src={logo} className='minimelvin' rounded></img>
-            <img src={logo} className='minimelvin' rounded></img>
-            <img src={logo} className='minimelvin' rounded></img>
-            <img src={logo} className='minimelvin' rounded></img>
-            <img src={logo} className='minimelvin' rounded></img>
-            <img src={logo} className='minimelvin' rounded></img>
+            <Button variant="contained" color="success" onClick={signOut}>Sign Out</Button>
         </>
     );
 };

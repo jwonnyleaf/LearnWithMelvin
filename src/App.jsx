@@ -1,14 +1,18 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
+
 import {
   BrowserRouter as Router,
   Navigate,
   Routes,
   Route,
-  Outlet,
 } from "react-router-dom";
 
+import ProtectedRoute from "./components/ProtectedRoute";
+import { AuthProvider } from "./contexts/AuthContext";
+import Loader from "./components/Loader";
 import Home from "./components/Home/Home";
-import Login from "./components/Login/Login";
+import SignIn from "./components/SignIn/SignIn";
+import SignUp from "./components/SignUp/SignUp";
 import About from "./components/About/About";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -18,10 +22,10 @@ const theme = createTheme({
       main: "#242424",
     },
     melon: {
-      main: "#ffa69e",
+      main: "#e68f87",
     },
     ashgreen: {
-      main: "#aac0aa",
+      main: "#81a981",
     },
     jasmine: {
       main: "#f9da8b",
@@ -35,7 +39,12 @@ const theme = createTheme({
 theme.components = {
   MuiButton: {
     styleOverrides: {
-      root: {},
+      root: {
+        backgroundColor: theme.palette.melon.main,
+        "&:hover": {
+          backgroundColor: theme.palette.ashgreen.main,
+        },
+      },
     },
   },
   MuiTextField: {
@@ -44,21 +53,70 @@ theme.components = {
         "& input": {
           color: theme.palette.platinum.main,
         },
+        "& label.Mui-focused": {
+          color: theme.palette.jasmine.main,
+        },
+        "& .MuiOutlinedInput-root": {
+          "&.Mui-focused fieldset": {
+            borderColor: theme.palette.jasmine.main,
+          },
+          "&:hover fieldset": {
+            borderColor: theme.palette.jasmine.main, // Change border color on hover
+          },
+        },
+      },
+    },
+  },
+  MuiFormLabel: {
+    styleOverrides: {
+      root: {
+        color: theme.palette.platinum.main,
+      },
+    },
+  },
+  MuiOutlinedInput: {
+    styleOverrides: {
+      root: {
+        "& fieldset": {
+          borderColor: theme.palette.platinum.main,
+        },
+        "&:hover fieldset": {
+          borderColor: theme.palette.jasmine.main, // Change border color on hover
+        },
       },
     },
   },
 };
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 500);
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-            <Route path="/about" element={<About />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+        <AuthProvider>
+          {loading && <Loader />}
+          <Routes>
+            {/* Protected Routes */}
+            <Route
+              path="/about"
+              element={
+                <ProtectedRoute>
+                  <About />
+                </ProtectedRoute>
+              }
+            />
+
+            {/* Unprotected Routes */}
+            <Route path="/" element={<Home />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </AuthProvider>
       </Router>
     </ThemeProvider>
   );
